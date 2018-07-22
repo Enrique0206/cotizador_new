@@ -1,3 +1,8 @@
+<?php
+require_once './autoload.php';
+
+$lista = FactorysDAO::listar();
+?>
 
 <html>
     <head lang="es">
@@ -12,35 +17,32 @@
     <body>
         <div class="container">
             
-            <form action="listar_factorys_cod.php" method="POST" enctype="multipart/form-data">
+            <form action="listar_ordens_cod.php" method="POST" enctype="multipart/form-data">
             
                 <div class="panel panel-default">				
 
                     <div class="panel-heading text-primary text-center">
-                        <h4 class="panel-title">Registro de Empresas</h4>
+                        <h4 class="panel-title">Registro de Cotizaciones</h4>
                     </div>
 
                     <div class="panel-body">
 						<div class="row">
 							<div class="form-group col-lg-6 col-md-6 col-sm-12 col-lg-12">
+								<label for="numero">N Cotizacion</label>
+								<input type="number" id="telefono" name="numero" class="form-control"  required="" autocomplete="off">                            
+							</div>							
+                        </div>
+						<div class="row">
+							<div class="form-group col-lg-6 col-md-6 col-sm-12 col-lg-12">
 							   <label for="empresa">Empresa</label>
-							   <input type="text" id="empresa" name="empresa" class="form-control" min="1" max="1000" required="" autocomplete="off">
+							   <select name="empresa" id="empresa" class="form-control" required="" autocomplete="off">
+									<option value="" selected="" disabled="">Seleccione</option>
+									<?php foreach($lista as $empresa){?>
+									<option value="<?=$empresa->id?>"><?=$empresa->nombre?></option>
+                                <?php }?>
+							   </select>						   
 							</div>							
-                        </div>							
-						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-12 col-lg-12">
-							   <label for="direccion">Direccion</label>
-							   <input type="text" id="direccion" name="direccion" class="form-control" min="1" max="1000" required="" autocomplete="off">
-							</div>							
-                        </div>					
-											
-						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-12 col-lg-12">
-								<label for="telefono">Telefono</label>
-								<input type="number" id="telefono" name="telefono" class="form-control"  required="" autocomplete="off">                            
-							</div>							
-                        </div>         
-
+                        </div>	
                     </div>
 
                     <div class="panel-footer mt-5">

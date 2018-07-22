@@ -13,7 +13,7 @@ try{
     
     Flash::success('Registro guardado');
     
-    header('location:listado_factory.php');
+    header('location:listado_factorys.php');
         
 } catch (Exception $ex) {
     die('Error: '  . $ex->getMessage());

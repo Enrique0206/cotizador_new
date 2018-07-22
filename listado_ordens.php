@@ -1,7 +1,7 @@
 <?php
 require_once './autoload.php';
 
-$lista = FactorysDAO::listar();
+$lista = OrdensDAO::listar();
 ?>
 
 
@@ -28,24 +28,26 @@ $lista = FactorysDAO::listar();
   						<table class="table table-hover">
          					<thead>                	 			   
 								<tr>
-									<th class="text-center">ID</th>
-									<th class="text-center">NOMBRE</th>
-                        			<th class="text-center">DIRECCION</th>    
-									<th class="text-center">TELEFONO</th> 
+									<th class="text-center">Id</th>
+									<th class="text-center">Numero de Cotizacion</th>
+                        			<th class="text-center">Empresa</th>    
+									<th class="text-center">Fecha</th> 
                         			<th class="text-center" width="30"></th> 
 									<th class="text-center" width="30"></th> 
                    				</tr>
             				</thead>
         		
                 			<tbody>
-                   			<?php foreach ($lista as $empresa) { ?>								
+                   			<?php foreach ($lista as $orden) { ?>								
                     			<tr class="text-center">                  					
-                    				<td><?=$empresa->id?></td>
-									<td><?=$empresa->nombre?></td>
-									<td><?=$empresa->direccion?></td>
-									<td><?=$empresa->telefono?></td>									
-									<td><a href="editar_factory.php?id=<?=$empresa->id?>" class="btn btn-warning" >Editar</a></td> 	
-									<td><a href="eliminar_factory.php?id=<?=$empresa->id?>" class="btn btn-danger">Eliminar</a></td> 
+                    				<td><?=$orden->id?></td>
+									<td><?=$orden->numero_cot?></td>
+									<td><?=$orden->empresa_nombre?></td>
+									<td><?=$orden->creado?></td>									
+									<!--<td><a href="editar_factorys.php?id=<?=$orden->id?>" class="btn btn-warning" >Editar</a></td> 	
+									<td><a href="eliminar_factorys.php?id=<?=$orden->id?>" class="btn btn-danger">Eliminar</a></td> -->
+									<td><a href="editar_ordens.php?id=<?=$orden->id?>" class="btn btn-warning" >Editar</a></td> 	
+									<td><a href="eliminar_ordens.php?id=<?=$orden->id?>" class="btn btn-danger">Eliminar</a></td> 
                     			</tr>                   
        	     				<?php }?>
               				</tbody>
@@ -56,7 +58,7 @@ $lista = FactorysDAO::listar();
     			<!-- Table -->	
 				
 				<div class="container">
-					<a href="listar_factorys.php" class="btn btn-success" >Nuevo</a>	
+					<a href="listar_ordens.php" class="btn btn-success" >Nuevo</a>	
 				</div>
 		</div> 	
         

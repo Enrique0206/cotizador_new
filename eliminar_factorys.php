@@ -8,7 +8,7 @@ try {
 	
     Flash::success('Producto eliminado satisfactoriamente');//aviso de cambio de estado
     
-    header('location:listado_factory.php');//se redirecciona una vez actualizado
+    header('location:listado_factorys.php');//se redirecciona una vez actualizado
     
 } catch (Exception $exc) {
     echo $exc->getTraceAsString();
